@@ -1,0 +1,74 @@
+.calendar-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 10px;
+  flex: 1;                /* fills all remaining vertical space */
+  display: flex;
+  flex-direction: column;
+}
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  flex: 1;                                /* stretch vertically */
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: minmax(100px, auto);    /* rows expand with content */
+  gap: 4px;
+  align-items: start;                     /* prevents forced equal heights */
+}
+
+.calendar-day-label {
+  font-weight: bold;
+  text-align: center;
+  padding: 6px 0;
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.calendar-cell {
+  border: 1px solid #ddd;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  /* The key parts */
+  height: auto;          /* allow vertical expansion */
+  min-height: 80px;      /* optional baseline height */
+  overflow: visible;     /* ensure names aren’t clipped */
+  white-space: normal;   /* allow wrapping */
+}
+
+
+
+.calendar-cell.faded {
+  background: #f7f7f7;
+  color: #999;
+}
+
+.calendar-cell.today {
+  border: 2px solid #0078ff;
+  background: rgba(0, 120, 255, 0.15);
+  border-radius: 6px;
+  font-weight: 600;
+  color: #0078ff;
+}
+.date-number {
+  font-size: 14px;
+  font-weight: bold;
+}
+.calendar-cell.weekend {
+  background: #f7faff;        /* soft blue tint */
+}
+
+.calendar-cell.weekend:hover {
+  background: #eef4ff;        /* slightly brighter on hover */
+}
